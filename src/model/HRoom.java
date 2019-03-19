@@ -8,6 +8,7 @@ public class HRoom{
   private double totalPrice;
   private int days;
   private boolean space;
+  private int id;
 
   //Relations
 
@@ -15,12 +16,13 @@ public class HRoom{
 
   //Methods
 
-  public HRoom(double parcialPrice, double totalPrice, int days, boolean space, Animal animals){
+  public HRoom(double parcialPrice, double totalPrice, int days, boolean space, int id, Animal animals){
 
     this.parcialPrice = parcialPrice;
     this.totalPrice = totalPrice;
     this.days = days;
     this.space = space;
+    this.id = id;
     this.animals = animals;
   }
 
@@ -58,6 +60,15 @@ public class HRoom{
   }
   public void setSpace(boolean space){
     this.space = space;
+  }
+
+  //id
+
+  public int getId(){
+    return id;
+  }
+  public void setId(int){
+    this.id = id;
   }
 
   //animals

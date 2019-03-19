@@ -1,27 +1,27 @@
 package model;
-
+import java.uit.ArrayList;
 public class HumanClient{
 
   //Attributes
 
   private String name;
-  private int identification;
-  private int phoneN;
+  private String identification;
+  private String phoneN;
   private String adress;
 
   //Relations
 
-  private Animal pet;
+  private ArrayList<Animal>pets;
 
   //Methods
 
-  public HumanClient(String name, int identification, int phoneN, String adress, Animal pet){
+  public HumanClient(String name, String identification, String phoneN, String adress){
 
     this.name = name;
     this.identification = identification;
     this.phoneN = phoneN;
     this.adress = adress;
-    this.pet = pet;
+    pets = new ArrayList<Animal>();
   }
 
   //name
@@ -35,19 +35,19 @@ public class HumanClient{
 
   //identification
 
-  public int getIdentification(){
+  public String getIdentification(){
     return identification;
   }
-  public void setIdentification(int identification){
+  public void setIdentification(String identification){
     this.identification = identification;
   }
 
   //phoneN
 
-  public int getPhoneN(){
+  public String getPhoneN(){
     return phoneN;
   }
-  public void setPhoneN(int phoneN){
+  public void setPhoneN(String phoneN){
     this.phoneN = phoneN;
   }
 
@@ -60,12 +60,4 @@ public class HumanClient{
     this.adress = adress;
   }
 
-  //pet
-
-  public Animal getPet(){
-    return pet;
-  }
-  public void setPet(Animal pet){
-    this.pet = pet;
-  }
 }

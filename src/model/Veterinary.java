@@ -1,6 +1,10 @@
 package model;
-
+import java.util.ArrayList;
 public class Veterinary{
+
+  //Constantino
+
+  public static final int NROOM = 8;
 
   //Attributes
 
@@ -8,16 +12,16 @@ public class Veterinary{
 
   //Relations
 
-  private HumanClient client;
-  private HRoom room;
+  private ArrayList<HumanClient>clients;
+  private HRoom[] rooms;
 
   //Methods
 
-  public Veterinary(String name, HumanClient client, HRoom room){
+  public Veterinary(String name){
 
     this.name = name;
-    this.client = client;
-    this.room = room;
+    clients = new ArrayList<HumanClient>();
+    rooms = new HRoom[NROOM];
   }
 
   //name
@@ -29,21 +33,4 @@ public class Veterinary{
     this.name = name;
   }
 
-  //client
-
-  public HumanClient getClient(){
-    return client;
-  }
-  public void setClient(HumanClient client){
-    this.client = client;
-  }
-
-  //room
-
-  public HRoom getRoom(){
-    return room;
-  }
-  public void setRoom(HRoom room){
-    this.room = room;
-  }
 }

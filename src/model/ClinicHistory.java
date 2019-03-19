@@ -1,5 +1,5 @@
 package model;
-
+import java.util.ArrayList;
 public class ClinicHistory{
 
   //Attributes
@@ -12,18 +12,17 @@ public class ClinicHistory{
 
   private Date eDate;
   private Date dDate;
-  private Medicine medicine1;
 
   //Methods
 
-  public ClinicHistory(char state, String diagnosis, String symptom, Date eDate, Date dDate, Medicine medicine1){
+  public ClinicHistory(char state, String diagnosis, String symptom, Date eDate, Date dDate){
 
     this.state = state;
     this.diagnosis = diagnosis;
     this.symptom = symptom;
     this.eDate = eDate;
     this.dDate = dDate;
-    this.medicine1 = medicine1;
+
   }
 
   //state
@@ -69,14 +68,5 @@ public class ClinicHistory{
   }
   public void setDDate(Date dDate){
     this.dDate = dDate;
-  }
-
-  //medicine1
-
-  public Medicine getMedicine1(){
-    return medicine1;
-  }
-  public void setMedicine1(Medicine medicine1){
-    this.medicine1 = medicine1;
   }
 }
