@@ -2,11 +2,20 @@ package model;
 
 public class Animal{
 
+  //Constantes
+
+  public static final char GATO = 'A';
+  public static final char PERRO = 'B';
+  public static final char AVE = 'C';
+  public static final char OTRO = 'D';
+
   //Attributes
 
   private String name;
   private double weight;
   private char type;
+  private int age;
+  private String breed;
 
   //Relations
 
@@ -47,6 +56,24 @@ public class Animal{
   }
   public void setType(char type){
     this.type = type;
+  }
+
+  //age
+
+  public int getAge(){
+    return age;
+  }
+  public void setAge(int age){
+    this.age = age;
+  }
+
+  //breed
+
+  public String getBreed(){
+    return breed;
+  }
+  public void setBreed(String breed){
+    this.breed = breed;
   }
 
   //cH

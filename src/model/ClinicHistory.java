@@ -12,6 +12,7 @@ public class ClinicHistory{
 
   private Date eDate;
   private Date dDate;
+  private ArrayList<Medicine>medicine1;
 
   //Methods
 
@@ -22,7 +23,7 @@ public class ClinicHistory{
     this.symptom = symptom;
     this.eDate = eDate;
     this.dDate = dDate;
-
+    medicine1 = new ArrayList<Medicine>();
   }
 
   //state
@@ -68,5 +69,12 @@ public class ClinicHistory{
   }
   public void setDDate(Date dDate){
     this.dDate = dDate;
+  }
+
+  //addMedicine
+
+  public boolean addMedicine(Medicine medicine){
+
+    return clients.add(medicine);
   }
 }

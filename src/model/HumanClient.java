@@ -1,5 +1,5 @@
 package model;
-import java.uit.ArrayList;
+import java.util.ArrayList;
 public class HumanClient{
 
   //Attributes
@@ -58,6 +58,13 @@ public class HumanClient{
   }
   public void setAdress(String adress){
     this.adress = adress;
+  }
+
+  //addPet
+
+  public boolean addPet(Animal pet){
+
+    return pets.add(pet);
   }
 
 }

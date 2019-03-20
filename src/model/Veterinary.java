@@ -33,4 +33,12 @@ public class Veterinary{
     this.name = name;
   }
 
+  //addClient
+
+  public boolean addClient(HumanClient client){
+
+    return clients.add(client);
+  }
+
+  //
 }
