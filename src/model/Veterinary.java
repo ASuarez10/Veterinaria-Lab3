@@ -40,5 +40,47 @@ public class Veterinary{
     return clients.add(client);
   }
 
-  //
+  //addPetToARoom
+
+  public String addPetToARoom(Animal nwPet){
+
+  String msj = "";
+  boolean found = false;
+
+    for(int i=0; i< rooms.length && !found; i++){
+
+      if(rooms[i].getSpace()){
+        found = true;
+        rooms[i].setAnimals(nwPet);
+        rooms[i].setSpace(false);
+
+        msj = "" + nwPet.getName() +" ha sido agregado en el cuarto "+(i+1);
+      }
+    }
+    if(found){
+      msj = "No hay cuartos vacios";
+    }
+    return msj;
+  }
+
+  //hospitalization
+
+  public String hospitalization(String cIdentification, String pName){
+
+    String msj = "";
+    Animal p = null;
+
+    for(int i = 0; i<clients.size() && p==null; i++){
+      if(clients.get(i).getIdentification().equals(cIdentification)){
+        p = clients.get(i).searchAPet(pName);
+        if(p!=null){
+          msj = "El cliente no tiene esta mascota";
+        }
+      }
+    }
+    if(p!=null){
+      msj = addPetToARoom(p);
+    }
+    return msj;
+  }
 }

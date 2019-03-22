@@ -67,4 +67,18 @@ public class HumanClient{
     return pets.add(pet);
   }
 
+  //searchAPet
+
+  public Animal searchAPet(String pName){
+    Animal mascota = null;
+    boolean found = false;
+
+    for(int i = 0; i<pets.size() && !found; i++){
+      if(pets.get(i).getName().equals(pName)){
+        mascota = pets.get(i);
+        found = true;
+      }
+    }
+    return mascota;
+  }
 }
