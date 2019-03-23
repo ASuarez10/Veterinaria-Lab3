@@ -81,4 +81,16 @@ public class HumanClient{
     }
     return mascota;
   }
+
+  //petsName
+
+  public String petsName(){
+    String msj = "Mascotas: "+"\n" ;
+
+    for(int i = 0; i < pets.size(); i++){
+
+      msj += "- " + pets.get(i).getName() + "\n";
+    }
+    return msj;
+  }
 }

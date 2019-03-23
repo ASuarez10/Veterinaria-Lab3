@@ -83,4 +83,23 @@ public class Veterinary{
     }
     return msj;
   }
+
+  //clientsInfo
+
+  public String clientsInfo(String clientIdentifier){
+    String info = "";
+    boolean esta = false;
+
+    for(int i = 0; i < clients.size() && !esta; i++){
+      if(clients.get(i).getIdentification().equals(clientIdentifier)){
+        esta = true;
+        info += "Nombre: "+ clients.get(i).getName() + "\n";
+        info += "Identificacion: "+ clients.get(i).getIdentification() + "\n";
+        info += "Numero de telefono: "+ clients.get(i).getPhoneN() + "\n";
+        info += "Direccion: "+ clients.get(i).getAdress() + "\n";
+        info += clients.get(i).petsName();
+      }
+    }
+    return info;
+  }
 }

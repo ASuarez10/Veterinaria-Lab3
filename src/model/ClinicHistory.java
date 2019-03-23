@@ -82,7 +82,7 @@ public class ClinicHistory{
     double costMedicaments = 0.0;
 
     for(int i = 0; i < medicine1.size(); i++){
-      costMedicaments += medicine1(i).getDose() * medicine1(i).getDosePrice();
+      costMedicaments += medicine1.get(i).getDose() * medicine1.get(i).getDosePrice();
     }
 
     return costMedicaments;

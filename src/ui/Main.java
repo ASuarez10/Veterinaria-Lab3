@@ -64,7 +64,10 @@ public class Main {
 
                       break;
                     case 3:
+                        System.out.println("Digite el ID del cliente");
+                        String clientIdentifier = reader.nextLine();
 
+                        System.out.println(veterinary.clientsInfo(clientIdentifier));
                       break;
                     case 4:
 
@@ -86,12 +89,12 @@ public class Main {
 
           public void init(){
 
-            HumanClient Alberto = new HumanClient("Alberto", "17887987", "312543547", "Cra 65 #14c 90");
+            /**HumanClient Alberto = new HumanClient("Alberto", "17887987", "312543547", "Cra 65 #14c 90");
             HumanClient Andres = new HumanClient("Andres", "100457457", "3159876794", "Cra 44 #23 45");
             HumanClient Marcela = new HumanClient("Marcela", "1007707024", "312543345", "Calle 13d #52 34");
             Animal Juan = new Animal("Juan", 2.0, "Gato", 2, "Persa");
             Animal Juana =  new Animal("Juana", 10.0, "Perro", 3, "Labrador");
-            Animal Alejandro = new Animal("Alejandro", 1.0, "Ave", 1, "Loro");
-      
+            Animal Alejandro = new Animal("Alejandro", 1.0, "Ave", 1, "Loro");*/
+
         }
 }
