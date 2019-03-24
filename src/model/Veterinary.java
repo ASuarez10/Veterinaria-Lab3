@@ -102,4 +102,18 @@ public class Veterinary{
     }
     return info;
   }
+
+  public String roomAviability(){
+    String msj = "";
+    boolean hay = false;
+
+    for(int i = 0; i < rooms.length && !hay; i++){
+      if(rooms[i].getSpace() == true){
+        msj = "Hay espacio en el cuarto " + (i+1);
+      }else{
+        msj = "No hay espacio en ningun cuarto";
+      }
+    }
+    return msj;
+  }
 }

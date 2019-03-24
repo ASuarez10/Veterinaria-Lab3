@@ -70,7 +70,7 @@ public class Main {
                         System.out.println(veterinary.clientsInfo(clientIdentifier));
                       break;
                     case 4:
-
+                        System.out.println(veterinary.roomAviability());
                       break;
                     case 5:
 
@@ -95,6 +95,14 @@ public class Main {
             Animal Juan = new Animal("Juan", 2.0, "Gato", 2, "Persa");
             Animal Juana =  new Animal("Juana", 10.0, "Perro", 3, "Labrador");
             Animal Alejandro = new Animal("Alejandro", 1.0, "Ave", 1, "Loro");*/
+            rooms[0] = new HRoom(true, 1, null);
+            rooms[1] = new HRoom(false, 2, new Animal("Spunky", 8,"Gato", 23.1));
+            rooms[2] = new HRoom(true, 3, null );
+            rooms[3] = new HRoom(true, 4, null);
+            rooms[4] = new HRoom(false, 5, new Animal("Oddie", 17,"Perro", 12.9));
+            rooms[5] = new HRoom(true, 6, null);
+            rooms[6] = new HRoom(false, 7,new Animal("Steve del Maincraft", 7,"Otro", 50.0));
+            rooms[7] = new HRoom(true, 8, null);
 
         }
 }
