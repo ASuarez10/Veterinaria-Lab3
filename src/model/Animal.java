@@ -92,62 +92,62 @@ public class Animal{
   public double hospitalizationCost(String typeA, double weightA, int aDay, int aMonth, int aYear){
     double cost = cH.costOfMedicamentsAplicated();
 
-    if(type.equals(GATO)){
-      if(weight >= 1.0 && weight <= 3.0){
+    if(typeA.equals(GATO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
       }
-      else if(weight >= 3.1 && weight <= 10.0){
+      else if(weightA >= 3.1 && weightA <= 10.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 12000.0;
       }
-      else if(weight >= 10.1 && weight <= 20.0){
+      else if(weightA >= 10.1 && weightA <= 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 15000.0;
       }
-      else if(weight > 20.0){
+      else if(weightA > 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
       }
     }
 
-    else if(type.equals(PERRO)){
-      if(weight >= 1.0 && weight <= 3.0){
+    else if(typeA.equals(PERRO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 15000.0;
       }
-      else if(weight >= 3.1 && weight <= 10.0){
+      else if(weightA >= 3.1 && weightA <= 10.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 17000.0;
       }
-      else if(weight >= 10.1 && weight <= 20.0){
+      else if(weightA >= 10.1 && weightA <= 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
       }
-      else if(weight > 20.0){
+      else if(weightA > 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 25000.0;
       }
     }
 
-    else if(type.equals(AVE)){
-      if(weight >= 1.0 && weight <= 3.0){
+    else if(typeA.equals(AVE)){
+      if(weightA >= 1.0 && weightA <= 3.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
       }
-      else if(weight >= 3.1 && weight <= 10.0){
+      else if(weightA >= 3.1 && weightA <= 10.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 12000.0;
       }
-      else if(weight >= 10.1 && weight <= 20.0){
+      else if(weightA >= 10.1 && weightA <= 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
       }
-      else if(weight > 20.0){
+      else if(weightA > 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 25000.0;
       }
     }
 
-    else if(type.equals(OTRO)){
-      if(weight >= 1.0 && weight <= 3.0){
+    else if(typeA.equals(OTRO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
       }
-      else if(weight >= 3.1 && weight <= 10.0){
+      else if(weightA >= 3.1 && weightA <= 10.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 17000.0;
       }
-      else if(weight >= 10.1 && weight <= 20.0){
+      else if(weightA >= 10.1 && weightA <= 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 30000.0;
       }
-      else if(weight > 20.0){
+      else if(weightA > 20.0){
         cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 33000.0;
       }
     }

@@ -31,10 +31,10 @@ public class HRoom{
 
   //id
 
-  public int getId(){
+  public int getID(){
     return id;
   }
-  public void setId(int id){
+  public void setID(int id){
     this.id = id;
   }
 
@@ -45,5 +45,14 @@ public class HRoom{
   }
   public void setAnimals(Animal animals){
     this.animals = animals;
+  }
+
+  //hospitalizationCost
+
+  public double hospitalizationCost(String typeA, double weightA, int aDay, int aMonth, int aYear){
+
+    double cost = animals.hospitalizationCost(typeA, weightA, aDay, aMonth, aYear);
+
+    return cost;
   }
 }

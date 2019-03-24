@@ -2,6 +2,7 @@ package ui;
 
 import model.*;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -37,7 +38,7 @@ public class Main {
                 System.out.println("-----------------------------------------------------------");
                 System.out.println("1. Registrar un cliente y sus mascotas");
                 System.out.println("-----------------------------------------------------------");
-                System.out.println("2. Agregar mas mascotas a un cliente");
+                System.out.println("2. Ver informacion de contacto de un cliente");
                 System.out.println("-----------------------------------------------------------");
                 System.out.println("3. Ver la informacion de los clientes y mascotas");
                 System.out.println("-----------------------------------------------------------");
@@ -75,6 +76,31 @@ public class Main {
                         System.out.println(veterinary.roomAviability());
                       break;
                     case 5:
+                      String uResponse = "";
+                      System.out.println("Ingrese el numero de la habitacion de la cual desea saber el precio de hospitalizacion");
+                      int idNew = reader.nextInt();
+                      reader.nextLine();
+
+                      System.out.println("Ingrese el tipo de mascota: Gato, Perro, Ave, Otro");
+                      String typeA = reader.nextLine();
+
+                      System.out.println("Ingrese el peso");
+                      uResponse = reader.nextLine();
+                      double weightA = Double.valueOf(uResponse);
+
+                      System.out.println("Ingrese el dia actual");
+                      int aDay = reader.nextInt();
+                      reader.nextLine();
+
+                      System.out.println("Ingrese el numero del mes actual");
+                      int aMonth = reader.nextInt();
+                      reader.nextLine();
+
+                      System.out.println("Ingrese el año actual");
+                      int aYear = reader.nextInt();
+                      reader.nextLine();
+
+                      System.out.println(veterinary.hospitalizationCost(idNew, typeA, weightA, aDay, aMonth, aYear));
 
                       break;
                     case 6:
@@ -108,17 +134,17 @@ public class Main {
 
             HumanClient Marcela = new HumanClient("Marcela", "1007707024", "312543345", "Calle 13d #52 34");
             Animal Alejandro = new Animal("Alejandro", 1.0, "Ave", 2, "Loro", null);
-            ArrayList<Animal> PetsAlejandro = new ArrayList<Animal>();
+            ArrayList<Animal> PetsMarcela = new ArrayList<Animal>();
             PetsMarcela.add(Alejandro);
 
-            rooms[0] = new HRoom(true, 1, null);
-            rooms[1] = new HRoom(false, 2, new Animal("Izak", 3.0,"Gato", new ClinicHistory(1, "Fisura tipo 3", "Dolor", new Date(10,2,2019))));
-            rooms[2] = new HRoom(true, 3, null );
-            rooms[3] = new HRoom(true, 4, null);
-            rooms[4] = new HRoom(false, 5, new Animal("Restrepo", 9.0,"Perro", new ClinicHistory(1, "Mordida en la cola", "Sangrado", new Date(21,3,2019))));
-            rooms[5] = new HRoom(true, 6, null);
-            rooms[6] = new HRoom(false, 7,new Animal("Chispi", 7.0,"Otro", new ClinicHistory(1, "Fractura de pata", "Dolor", new Date(10,3,2019))));
-            rooms[7] = new HRoom(true, 8, null);
+            HRoom rooms1 = new HRoom(true, 1, null);
+            HRoom rooms2 = new HRoom(false, 2, new Animal("Izak", 3.0,"Gato", 2, "Siames", new ClinicHistory(1, "Fisura tipo 3", "Dolor", new Date(10,2,2019))));
+            HRoom rooms3 = new HRoom(true, 3, null );
+            HRoom rooms4 = new HRoom(true, 4, null);
+            HRoom rooms5 = new HRoom(false, 5, new Animal("Restrepo", 9.0,"Otro", 3, "Dragon" ,new ClinicHistory(1, "Mordida en la cola", "Sangrado", new Date(21,3,2019))));
+            HRoom rooms6 = new HRoom(true, 6, null);
+            HRoom rooms7 = new HRoom(false, 7,new Animal("Chispi", 7.0,"Otro", 4, "Iguana", new ClinicHistory(1, "Fractura de pata", "Dolor", new Date(10,3,2019))));
+            HRoom rooms8 = new HRoom(true, 8, null);
 
         }
 }

@@ -117,10 +117,40 @@ public class Veterinary{
     return msj;
   }
 
-  //addPet
+  /**addPet
 
   public boolean addPet(Animal pet){
 
     return clients.addPet(pet);
+  }*/
+
+  //hospitalizationCost
+
+  public String hospitalizationCost(int idNew, String typeA, double weightA, int aDay, int aMonth, int aYear){
+    String msj = "";
+    boolean es = false;
+    for(int i = 0; i < rooms.length && !false; i++){
+
+      if(idNew == rooms[i].getID()){
+        es = true;
+        if(rooms[i].getSpace() == false){
+          msj += "El costo de hospitalizacion de es de "+ rooms[i].hospitalizationCost(typeA, weightA, aDay, aMonth, aYear) + " pesos.";
+        }else{
+          msj += "No hay ningun animal hospitalizado.";
+        }
+      }
+    }
+    return msj;
   }
+
+  public void addMiniRoom(HRoom rooms1, HRoom rooms2, HRoom rooms3, HRoom rooms4, HRoom rooms5, HRoom rooms6,HRoom rooms7,HRoom rooms8){
+  rooms[0] = rooms1;
+  rooms[1] = rooms2;
+  rooms[2] = rooms3;
+  rooms[3] = rooms4;
+  rooms[4] = rooms5;
+  rooms[5] = rooms6;
+  rooms[6] = rooms7;
+  rooms[7] = rooms8;
+}
 }
