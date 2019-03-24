@@ -4,7 +4,7 @@ public class ClinicHistory{
 
   //Attributes
 
-  private char state;
+  private int state;
   private String diagnosis;
   private String symptom;
 
@@ -15,7 +15,7 @@ public class ClinicHistory{
 
   //Methods
 
-  public ClinicHistory(char state, String diagnosis, String symptom, Date eDate){
+  public ClinicHistory(int state, String diagnosis, String symptom, Date eDate){
 
     this.state = state;
     this.diagnosis = diagnosis;
@@ -26,10 +26,10 @@ public class ClinicHistory{
 
   //state
 
-  public char getState(){
+  public int getState(){
     return state;
   }
-  public void setState(char state){
+  public void setState(int state){
     this.state = state;
   }
 

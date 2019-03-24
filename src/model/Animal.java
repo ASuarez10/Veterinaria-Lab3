@@ -23,11 +23,13 @@ public class Animal{
 
   //Methods
 
-  public Animal(String name, double weight, String type, ClinicHistory cH){
+  public Animal(String name, double weight, String type, int age, String breed, ClinicHistory cH){
 
     this.name = name;
     this.weight = weight;
     this.type = type;
+    this.age = age;
+    this.breed = breed;
     this.cH = cH;
   }
 
@@ -87,7 +89,7 @@ public class Animal{
 
   //hospitalizationCost
 
-  public double hospitalizationCost(int aDay, int aMonth, int aYear){
+  public double hospitalizationCost(String typeA, double weightA, int aDay, int aMonth, int aYear){
     double cost = cH.costOfMedicamentsAplicated();
 
     if(type.equals(GATO)){

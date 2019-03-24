@@ -116,4 +116,11 @@ public class Veterinary{
     }
     return msj;
   }
+
+  //addPet
+
+  public boolean addPet(Animal pet){
+
+    return clients.addPet(pet);
+  }
 }
