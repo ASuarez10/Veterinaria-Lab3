@@ -35,10 +35,12 @@ public class Veterinary{
 
   //addClient
 
-  public boolean addClient(HumanClient client){
+  public void addClient(Client client, ArrayList<Animal> clientsPets){
 
-    return clients.add(client);
-  }
+  clients.add(client);
+  clients.get((clients.size()-1)).addPet(clientsPets);
+
+}
 
   //addPetToARoom
 
@@ -61,6 +63,16 @@ public class Veterinary{
       msj = "No hay cuartos vacios";
     }
     return msj;
+  }
+
+  public String showClients(){
+      String msj = "";
+      msj += clients.size();
+       for(int i = 0 ; i<clients.size(); i++){
+         msj +=  (i+1) + clients.get(i).infoClient();
+      }
+      return msj;
+
   }
 
   //hospitalization
@@ -99,6 +111,7 @@ public class Veterinary{
         info += "Direccion: "+ clients.get(i).getAdress() + "\n";
         info += clients.get(i).petsName();
       }
+      info += "No existe este cliente";
     }
     return info;
   }
@@ -117,40 +130,137 @@ public class Veterinary{
     return msj;
   }
 
-  /**addPet
+  //hospitalizeVet
 
-  public boolean addPet(Animal pet){
+  public void hospitalizeAPet(String nameClie, String idClie , String namePe, ClinicHistory newMedRec, Medicine medic){
+		boolean theStop = false;
 
-    return clients.addPet(pet);
-  }*/
+		for(int i = 0;i < clients.size() && !theStop;i++){
+			if(clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentification() == idClie){
+
+				theStop = true;
+				clients.get(i).startHospita(namePe, newMedRec, medic);
+
+
+			}else{
+        Animal petRelation = clients.get(i).findPet(namePe);
+
+      }
+
+		}
+	}
 
   //hospitalizationCost
 
-  public String hospitalizationCost(int idNew, String typeA, double weightA, int aDay, int aMonth, int aYear){
-    String msj = "";
-    boolean es = false;
-    for(int i = 0; i < rooms.length && !false; i++){
+  public double hospitalizationCost(String typeA, double weightA, int days){
+    double cost = 0.0;
 
-      if(idNew == rooms[i].getID()){
-        es = true;
-        if(rooms[i].getSpace() == false){
-          msj += "El costo de hospitalizacion de es de "+ rooms[i].hospitalizationCost(typeA, weightA, aDay, aMonth, aYear) + " pesos.";
-        }else{
-          msj += "No hay ningun animal hospitalizado.";
-        }
+
+    if(typeA.equals(Animal.GATO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
+        cost = (days * 10000.0);
+      }
+      else if(weightA >= 3.1 && weightA <= 10.0){
+        cost =   (days * 12000.0);
+      }
+      else if(weightA >= 10.1 && weightA <= 20.0){
+        cost =  (days * 15000.0);
+      }
+      else if(weightA > 20.0){
+        cost = (days * 20000.0);
       }
     }
-    return msj;
+
+    else if(typeA.equals(Animal.PERRO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
+        cost =  (days * 15000.0);
+      }
+      else if(weightA >= 3.1 && weightA <= 10.0){
+        cost =  (days * 17000.0);
+      }
+      else if(weightA >= 10.1 && weightA <= 20.0){
+        cost =  (days * 20000.0);
+      }
+      else if(weightA > 20.0){
+        cost = (days * 25000.0);
+      }
+    }
+
+    else if(typeA.equals(Animal.AVE)){
+      if(weightA >= 1.0 && weightA <= 3.0){
+        cost =  (days * 10000.0);
+      }
+      else if(weightA >= 3.1 && weightA <= 10.0){
+        cost =  (days * 12000.0);
+      }
+      else if(weightA >= 10.1 && weightA <= 20.0){
+        cost = (days * 20000.0);
+      }
+      else if(weightA > 20.0){
+        cost =  (days * 25000.0);
+      }
+    }
+
+    else if(typeA.equals(Animal.OTRO)){
+      if(weightA >= 1.0 && weightA <= 3.0){
+        cost =   (days * 10000.0);
+      }
+      else if(weightA >= 3.1 && weightA <= 10.0){
+        cost =  (days * 17000.0);
+      }
+      else if(weightA >= 10.1 && weightA <= 20.0){
+        cost =  (days * 30000.0);
+      }
+      else if(weightA > 20.0){
+        cost = (days * 33000.0);
+      }
+    }
+
+      return cost;
   }
 
   public void addMiniRoom(HRoom rooms1, HRoom rooms2, HRoom rooms3, HRoom rooms4, HRoom rooms5, HRoom rooms6,HRoom rooms7,HRoom rooms8){
-  rooms[0] = rooms1;
-  rooms[1] = rooms2;
-  rooms[2] = rooms3;
-  rooms[3] = rooms4;
-  rooms[4] = rooms5;
-  rooms[5] = rooms6;
-  rooms[6] = rooms7;
-  rooms[7] = rooms8;
+    rooms[0] = rooms1;
+    rooms[1] = rooms2;
+    rooms[2] = rooms3;
+    rooms[3] = rooms4;
+    rooms[4] = rooms5;
+    rooms[5] = rooms6;
+    rooms[6] = rooms7;
+    rooms[7] = rooms8;
+  }
+
+
+  // contactClient
+
+  public String contact(String iDN){
+    String msj = "No existe este cliente";
+    boolean esta = false;
+
+    for(int i = 0; i < clients.size() && !esta; i++){
+      if(iDN.equals(clients.get(i).getIdentification())){
+        msj = "El numero del cliente es "+clients.get(i).getPhoneN();
+        esta = true;
+      }
+    }
+
+    return msj;
+  }
+
+  //findPet
+
+  public Animal findPet(String nameClie, String idClie, String  namePe){
+
+  boolean theStop = false;
+  Animal relationshipOfPet = null;
+
+  for(int i= 0;i < clients.size() && !theStop; i++){
+    if (!clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentication() == idClie){
+      relationshipOfPet = clients.get(i).findPet(namePe);
+
+      theStop = true;
+    }
+  }
+
 }
 }

@@ -7,16 +7,18 @@ public class HRoom{
   private boolean space;
   private int id;
 
+
   //Relations
 
   private Animal animals;
 
   //Methods
 
-  public HRoom(boolean space, int id, Animal animals){
+  public HRoom(boolean space, int id, int number, Animal animals){
 
     this.space = space;
     this.id = id;
+
     this.animals = animals;
   }
 
@@ -38,6 +40,8 @@ public class HRoom{
     this.id = id;
   }
 
+
+
   //animals
 
   public Animal getAnimals(){
@@ -47,12 +51,5 @@ public class HRoom{
     this.animals = animals;
   }
 
-  //hospitalizationCost
 
-  public double hospitalizationCost(String typeA, double weightA, int aDay, int aMonth, int aYear){
-
-    double cost = animals.hospitalizationCost(typeA, weightA, aDay, aMonth, aYear);
-
-    return cost;
-  }
 }

@@ -67,6 +67,51 @@ public class HumanClient{
     return pets.add(pet);
   }
 
+  public String infoClient(){
+    String msj = "";
+    msj += "Mi nombre es:" + name  ;
+    msj += "Mi identificacion es:" + identification;
+    msj += "Mi direccion es:" + address  ;
+    msj += "Mi numero es:" + phoneN  ;
+
+    int j = 0;
+    for(int i = 0; i<pets.size(); i++){
+    	++j;
+      msj += "Pet"+ j + "";
+      msj += pets.get(i).infoPet();
+    }
+    return msj;
+  }
+
+  //findPet
+
+  public Animal findPet(String namePe){
+
+	Animal restrepo = null;
+	boolean found = false;
+
+	for(int i = 0; i< pets.size() && !found; i++){
+
+		if(pets.get(i).getName().equals(namePe)){
+			restrepo = pets.get(i);
+			found = true;
+		}
+
+	}
+  //startHospita
+
+  public void startHospita(String namePe, ClinicHistory newMedRec, Medicine medic){
+    boolean petts = false;
+
+    for(int i = 0; i < pets.size() && !petts; i++)
+    if(pets.get(i).getName().equals(namePe)){
+      petts = true;
+
+    	pets.get(i).addMedRec(newMedRec,medic);
+
+    	}
+  }
+
   //searchAPet
 
   public Animal searchAPet(String pName){
@@ -93,5 +138,10 @@ public class HumanClient{
     }
     return msj;
   }
+
+  public void addPet(ArrayList<Animal> clientsPets){
+   pets = clientsPets;
+
+   }
 
 }

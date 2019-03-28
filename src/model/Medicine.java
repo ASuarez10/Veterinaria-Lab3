@@ -7,16 +7,14 @@ public class Medicine{
   private String name;
   private double dose;
   private double dosePrice;
-  private int frequencyForDay;
 
   //Methods
 
-  public Medicine(String name, double dose, double dosePrice, int frequencyForDay){
+  public Medicine(String name, double dose, double dosePrice){
 
     this.name = name;
     this.dose = dose;
     this.dosePrice = dosePrice;
-    this.frequencyForDay = frequencyForDay;
   }
 
   //name
@@ -46,12 +44,4 @@ public class Medicine{
     this.dosePrice = dosePrice;
   }
 
-  //frequencyForDay
-
-  public int getFrequencyForDay(){
-    return frequencyForDay;
-  }
-  public void setFrequencyForDay(int frequencyForDay){
-    this.frequencyForDay = frequencyForDay;
-  }
 }

@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 
 public class Animal{
 
@@ -20,6 +21,8 @@ public class Animal{
   //Relations
 
   private ClinicHistory cH;
+  private HRoom room;
+  private ArrayList<ClinicalHistory> clientH;
 
   //Methods
 
@@ -31,6 +34,7 @@ public class Animal{
     this.age = age;
     this.breed = breed;
     this.cH = cH;
+    clientH = new ArrayList<ClinicalHistory>();
   }
 
   //name
@@ -87,71 +91,37 @@ public class Animal{
     this.cH = cH;
   }
 
-  //hospitalizationCost
+  public int getRoomNumber(){
+		return room.getNumber();
+	}
+  public HRoom getRoom(){
+		return room;
+	}
+	public void setRoom(HRoom room){
+		this.room = room;
 
-  public double hospitalizationCost(String typeA, double weightA, int aDay, int aMonth, int aYear){
-    double cost = cH.costOfMedicamentsAplicated();
 
-    if(typeA.equals(GATO)){
-      if(weightA >= 1.0 && weightA <= 3.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
-      }
-      else if(weightA >= 3.1 && weightA <= 10.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 12000.0;
-      }
-      else if(weightA >= 10.1 && weightA <= 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 15000.0;
-      }
-      else if(weightA > 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
-      }
-    }
+  //infoPet
 
-    else if(typeA.equals(PERRO)){
-      if(weightA >= 1.0 && weightA <= 3.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 15000.0;
-      }
-      else if(weightA >= 3.1 && weightA <= 10.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 17000.0;
-      }
-      else if(weightA >= 10.1 && weightA <= 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
-      }
-      else if(weightA > 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 25000.0;
-      }
-    }
+  public String infoPet(){
+  String msj = "";
+  msj += "El name es:" + name + "\n";
+  msj += "Su edad es:" + age + "\n";
+  msj += "Mi peso es:" + weight + "\n";
+  msj +="Mi tipo es:" + type + "\n";
 
-    else if(typeA.equals(AVE)){
-      if(weightA >= 1.0 && weightA <= 3.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
-      }
-      else if(weightA >= 3.1 && weightA <= 10.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 12000.0;
-      }
-      else if(weightA >= 10.1 && weightA <= 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 20000.0;
-      }
-      else if(weightA > 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 25000.0;
-      }
-    }
+    return msj;
 
-    else if(typeA.equals(OTRO)){
-      if(weightA >= 1.0 && weightA <= 3.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 10000.0;
-      }
-      else if(weightA >= 3.1 && weightA <= 10.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 17000.0;
-      }
-      else if(weightA >= 10.1 && weightA <= 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 30000.0;
-      }
-      else if(weightA > 20.0){
-        cost += cH.daysInHospitalization(aDay, aMonth, aYear) * 33000.0;
-      }
-    }
+ }
 
-      return cost;
+  //addMedRec
+
+  public void addMedRec(ClinicHistory newMedRec, Medicine medic){
+
+  	newMedRec.setPetInfo(showInfoPet());
+  	clientH.add(newMedRec);
+
+  	clientH.get((clientH.size()-1)).addmedicine1(medic);
+
   }
 }
