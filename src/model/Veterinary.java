@@ -35,7 +35,7 @@ public class Veterinary{
 
   //addClient
 
-  public void addClient(Client client, ArrayList<Animal> clientsPets){
+  public void addClient(HumanClient client, ArrayList<Animal> clientsPets){
 
   clients.add(client);
   clients.get((clients.size()-1)).addPet(clientsPets);
@@ -130,26 +130,6 @@ public class Veterinary{
     return msj;
   }
 
-  //hospitalizeVet
-
-  public void hospitalizeAPet(String nameClie, String idClie , String namePe, ClinicHistory newMedRec, Medicine medic){
-		boolean theStop = false;
-
-		for(int i = 0;i < clients.size() && !theStop;i++){
-			if(clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentification() == idClie){
-
-				theStop = true;
-				clients.get(i).startHospita(namePe, newMedRec, medic);
-
-
-			}else{
-        Animal petRelation = clients.get(i).findPet(namePe);
-
-      }
-
-		}
-	}
-
   //hospitalizationCost
 
   public double hospitalizationCost(String typeA, double weightA, int days){
@@ -239,7 +219,7 @@ public class Veterinary{
 
     for(int i = 0; i < clients.size() && !esta; i++){
       if(iDN.equals(clients.get(i).getIdentification())){
-        msj = "El numero del cliente es "+clients.get(i).getPhoneN();
+        msj = "El numero telefonico del cliente es: "+clients.get(i).getPhoneN();
         esta = true;
       }
     }
@@ -255,12 +235,12 @@ public class Veterinary{
   Animal relationshipOfPet = null;
 
   for(int i= 0;i < clients.size() && !theStop; i++){
-    if (!clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentication() == idClie){
+    if (!clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentification() == idClie){
       relationshipOfPet = clients.get(i).findPet(namePe);
 
       theStop = true;
     }
   }
-
+  return relationshipOfPet;
 }
 }

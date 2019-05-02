@@ -13,6 +13,7 @@ public class Animal{
   //Attributes
 
   private String name;
+  private double height;
   private double weight;
   private String type;
   private int age;
@@ -22,22 +23,29 @@ public class Animal{
 
   private ClinicHistory cH;
   private HRoom room;
-  private ArrayList<ClinicalHistory> clientH;
+  private ArrayList<ClinicHistory> clientH;
 
   //Methods
 
-  public Animal(String name, double weight, String type, int age, String breed, ClinicHistory cH){
+  public Animal(String name, double height, double weight, String type, int age, String breed, ClinicHistory cH){
 
     this.name = name;
+    this.height = height;
     this.weight = weight;
     this.type = type;
     this.age = age;
     this.breed = breed;
     this.cH = cH;
-    clientH = new ArrayList<ClinicalHistory>();
+    clientH = new ArrayList<ClinicHistory>();
   }
 
   //name
+
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
 
   public String getName(){
     return name;
@@ -48,6 +56,12 @@ public class Animal{
 
   //weight
 
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
+
   public double getWeight(){
     return weight;
   }
@@ -56,6 +70,12 @@ public class Animal{
   }
 
   //type
+
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
 
   public String getType(){
     return type;
@@ -66,6 +86,12 @@ public class Animal{
 
   //age
 
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
+
   public int getAge(){
     return age;
   }
@@ -75,6 +101,12 @@ public class Animal{
 
   //breed
 
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
+
   public String getBreed(){
     return breed;
   }
@@ -82,24 +114,20 @@ public class Animal{
     this.breed = breed;
   }
 
-  //cH
+  //room
 
-  public ClinicHistory getCH(){
-    return cH;
-  }
-  public void setCH(ClinicHistory cH){
-    this.cH = cH;
-  }
+  /**
+	* Description This method allows to get the symptom of the pet. <br>
+	* <b>post:</b> The name of the medicine of a date is given.
+	* @return The name of the medicine.
+	*/
 
-  public int getRoomNumber(){
-		return room.getNumber();
-	}
   public HRoom getRoom(){
 		return room;
 	}
 	public void setRoom(HRoom room){
 		this.room = room;
-
+  }
 
   //infoPet
 
@@ -109,19 +137,28 @@ public class Animal{
   msj += "Su edad es:" + age + "\n";
   msj += "Mi peso es:" + weight + "\n";
   msj +="Mi tipo es:" + type + "\n";
-
+  msj +="Mi indice de masa corporal es: "+ calculateBMI();
     return msj;
 
  }
 
-  //addMedRec
+ /**
+*Description This method allows to calculate the body mass index for a pet.
+*pre: The pet was created before and its attributes height and weight are not null neither height must be zero.
+*post: The BMI is calculated.
+*@return The pet body mass index. Returns -1 if the height is zero  due to the division on zero does not exist.
+*/
 
-  public void addMedRec(ClinicHistory newMedRec, Medicine medic){
+ //calculateBMI
 
-  	newMedRec.setPetInfo(showInfoPet());
-  	clientH.add(newMedRec);
+ public double calculateBMI(){
+   double bmi = 0.0;
 
-  	clientH.get((clientH.size()-1)).addmedicine1(medic);
-
-  }
+   if(height == 0){
+     bmi = -1.0;
+   }else{
+     bmi += (weight / (height * height));
+   }
+   return bmi;
+ }
 }

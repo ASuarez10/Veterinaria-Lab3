@@ -71,7 +71,7 @@ public class HumanClient{
     String msj = "";
     msj += "Mi nombre es:" + name  ;
     msj += "Mi identificacion es:" + identification;
-    msj += "Mi direccion es:" + address  ;
+    msj += "Mi direccion es:" + adress  ;
     msj += "Mi numero es:" + phoneN  ;
 
     int j = 0;
@@ -87,30 +87,18 @@ public class HumanClient{
 
   public Animal findPet(String namePe){
 
-	Animal restrepo = null;
-	boolean found = false;
+  	Animal restrepo = null;
+  	boolean found = false;
 
-	for(int i = 0; i< pets.size() && !found; i++){
+  	for(int i = 0; i< pets.size() && !found; i++){
 
-		if(pets.get(i).getName().equals(namePe)){
-			restrepo = pets.get(i);
-			found = true;
-		}
-
+  		if(pets.get(i).getName().equals(namePe)){
+  			restrepo = pets.get(i);
+  			found = true;
+  		}
+    }
+    return restrepo;
 	}
-  //startHospita
-
-  public void startHospita(String namePe, ClinicHistory newMedRec, Medicine medic){
-    boolean petts = false;
-
-    for(int i = 0; i < pets.size() && !petts; i++)
-    if(pets.get(i).getName().equals(namePe)){
-      petts = true;
-
-    	pets.get(i).addMedRec(newMedRec,medic);
-
-    	}
-  }
 
   //searchAPet
 
