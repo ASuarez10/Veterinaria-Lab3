@@ -42,29 +42,65 @@ public class Animal{
   //name
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the name of the pet. <br>
+	* <b>post:</b> The name of the pet is given.
+	* @return The name of the pet.
 	*/
 
   public String getName(){
     return name;
   }
+
+  /**
+	* Description This method allows to change the name of the pet. <br>
+	* <b>post:</b> The name of the pet is changed.
+	* @param The new name of the pet.
+	*/
+
   public void setName(String name){
     this.name = name;
+  }
+
+  //height
+
+  /**
+	* Description This method allows to get the height of the pet. <br>
+	* <b>post:</b> The height of the pet is given.
+	* @return The height of the pet.
+	*/
+
+  public double getHeight(){
+    return height;
+  }
+
+  /**
+	* Description This method allows to change the height of the pet. <br>
+	* <b>post:</b> The height of the pet is changed.
+	* @param The new height of the pet.
+	*/
+
+  public void setHeight(double height){
+    this.height = height;
   }
 
   //weight
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the weight of the pet. <br>
+	* <b>post:</b> The weight of the pet is given.
+	* @return The weight of the pet.
 	*/
 
   public double getWeight(){
     return weight;
   }
+
+  /**
+	* Description This method allows to change the weight of the pet. <br>
+	* <b>post:</b> The weight of the pet is changed.
+	* @param The new weight of the pet.
+	*/
+
   public void setWeight(double weight){
     this.weight = weight;
   }
@@ -72,14 +108,21 @@ public class Animal{
   //type
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the type of the pet. <br>
+	* <b>post:</b> The type of the pet is given.
+	* @return The type of the pet.
 	*/
 
   public String getType(){
     return type;
   }
+
+  /**
+	* Description This method allows to change the type of the pet. <br>
+	* <b>post:</b> The type of the pet is changed.
+	* @param The new type of the pet.
+	*/
+
   public void setType(String type){
     this.type = type;
   }
@@ -87,14 +130,21 @@ public class Animal{
   //age
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the age of the pet. <br>
+	* <b>post:</b> The age of the pet is given.
+	* @return The age of the pet.
 	*/
 
   public int getAge(){
     return age;
   }
+
+  /**
+	* Description This method allows to change the age of the pet. <br>
+	* <b>post:</b> The age of the pet is changed.
+	* @param The new age of the pet.
+	*/
+
   public void setAge(int age){
     this.age = age;
   }
@@ -102,14 +152,21 @@ public class Animal{
   //breed
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the breed of the pet. <br>
+	* <b>post:</b> The breed of the pet is given.
+	* @return The breed of the pet.
 	*/
 
   public String getBreed(){
     return breed;
   }
+
+  /**
+	* Description This method allows to change the breed of the pet. <br>
+	* <b>post:</b> The breed of the pet is changed.
+	* @param The new breed of the pet.
+	*/
+
   public void setBreed(String breed){
     this.breed = breed;
   }
@@ -117,14 +174,21 @@ public class Animal{
   //room
 
   /**
-	* Description This method allows to get the symptom of the pet. <br>
-	* <b>post:</b> The name of the medicine of a date is given.
-	* @return The name of the medicine.
+	* Description This method allows to get the whole object. <br>
+	* <b>post:</b> The whole object is given.
+	* @return The object room.
 	*/
 
   public HRoom getRoom(){
 		return room;
 	}
+
+  /**
+	* Description This method allows to change the object room. <br>
+	* <b>post:</b> The object room is changed.
+	* @param The new object room.
+	*/
+
 	public void setRoom(HRoom room){
 		this.room = room;
   }
@@ -135,6 +199,7 @@ public class Animal{
   String msj = "";
   msj += "El name es:" + name + "\n";
   msj += "Su edad es:" + age + "\n";
+  msj += "Su altura es:" + height + "\n";
   msj += "Mi peso es:" + weight + "\n";
   msj +="Mi tipo es:" + type + "\n";
   msj +="Mi indice de masa corporal es: "+ calculateBMI();

@@ -26,9 +26,22 @@ public class Veterinary{
 
   //name
 
+  /**
+	* Description This method allows to get the name of the veterinary. <br>
+	* <b>post:</b> The name of the veterinary is given.
+	* @return The name of the veterinary.
+	*/
+
   public String getName(){
     return name;
   }
+
+  /**
+	* Description This method allows to change the name of the veterinary. <br>
+	* <b>post:</b> The name of the veterinary is changed.
+	* @param The new name of the veterinary.
+	*/
+
   public void setName(String name){
     this.name = name;
   }
