@@ -196,15 +196,16 @@ public class Animal{
   //infoPet
 
   public String infoPet(){
-  String msj = "";
-  msj += "El name es:" + name + "\n";
-  msj += "Su edad es:" + age + "\n";
-  msj += "Su altura es:" + height + "\n";
-  msj += "Mi peso es:" + weight + "\n";
-  msj +="Mi tipo es:" + type + "\n";
-  msj +="Mi indice de masa corporal es: "+ calculateBMI();
-    return msj;
+    String msj = "";
 
+    msj += "Mi nombre es:" + name + "\n";
+    msj += "Su edad es:" + age + "\n";
+    msj += "Su altura es:" + height + "\n";
+    msj += "Mi peso es:" + weight + "\n";
+    msj +="Mi tipo es:" + type + "\n";
+    msj +="Mi indice de masa corporal es: "+ calculateBMI();
+
+  return msj;
  }
 
  /**

@@ -111,5 +111,13 @@ public class HRoom{
     this.animals = animals;
   }
 
+  public String infoPet(){
+    String msj = animals.infoPet();
+    return msj;
+  }
+
+  public String nombrePet(){
+    return animals.getName();
+  }
 
 }

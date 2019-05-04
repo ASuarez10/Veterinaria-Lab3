@@ -213,6 +213,8 @@ public class Veterinary{
   }
 
   public void addMiniRoom(HRoom rooms1, HRoom rooms2, HRoom rooms3, HRoom rooms4, HRoom rooms5, HRoom rooms6,HRoom rooms7,HRoom rooms8){
+
+
     rooms[0] = rooms1;
     rooms[1] = rooms2;
     rooms[2] = rooms3;
@@ -255,5 +257,28 @@ public class Veterinary{
     }
   }
   return relationshipOfPet;
-}
+  }
+
+  public String infoPetCuarto(String bName){
+    String msj = "Este animal no esta hospitalizado";
+
+    for(int i = 0; i < rooms.length; i++){
+      if(bName.equals(rooms[i].nombrePet())){
+        msj = rooms[i].infoPet();
+      }
+    }
+    return msj;
+  }
+
+  public String infoPetClient(String idInfo){
+    String msj = "Este cliente no esta registrado";
+
+    for(int i = 0; i < clients.size(); i++){
+
+      if(idInfo.equals(clients.get(i).getIdentification())){
+        msj = clients.get(i).infoPet();
+      }
+    }
+    return msj;
+  }
 }

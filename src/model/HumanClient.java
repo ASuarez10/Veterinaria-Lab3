@@ -184,4 +184,14 @@ public class HumanClient{
 
    }
 
+   public String infoPet(){
+     String msj = "";
+
+     for(int i = 0; i < pets.size(); i++){
+
+       msj += pets.get(i).infoPet() + "\n";
+     }
+
+     return msj;
+   }
 }

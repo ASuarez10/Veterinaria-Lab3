@@ -48,7 +48,11 @@ public class Main {
                 System.out.println("-----------------------------------------------------------");
                 System.out.println("4. Calcular del costo de la hospitalizacion");
                 System.out.println("-----------------------------------------------------------");
-                System.out.println("5. Salir.");
+                System.out.println("5. Ver informacion de una mascota en un cuarto");
+                System.out.println("-----------------------------------------------------------");
+                System.out.println("6. Ver informacion de las mascotas de un cliente");
+                System.out.println("-----------------------------------------------------------");
+                System.out.println("7. Salir.");
                 System.out.println("-----------------------------------------------------------");
 
                 a = Menu.nextInt();
@@ -120,7 +124,6 @@ public class Main {
                       break;
                     case 4:
 
-
                       System.out.println("Ingrese el tipo de mascota:\n Gato\n Perro\n Ave\n Otro");
                       String typeA = reader.nextLine();
 
@@ -135,9 +138,25 @@ public class Main {
                       System.out.println("El costo de la hospitalizacion es de "+ veterinary.hospitalizationCost(typeA, weightA, days) + " pesos");
 
                       break;
+                    case 5:
+
+                      System.out.println("Ingrese el nombre de la mascota para ver la info");
+                      String bName = reader.nextLine();
+
+                      System.out.println(veterinary.infoPetCuarto(bName));
+
+                      break;
+                    case 6:
+
+                      System.out.println("Ingrese la identificacion del cliente");
+                      String idInfo = reader.nextLine();
+
+                      System.out.println(veterinary.infoPetClient(idInfo));
+
+                      break;
 
                 }
-              }while(a != 5);
+              }while(a != 7);
 
           }
 
@@ -171,6 +190,8 @@ public class Main {
               String id = "";
 		          String petName ="";
 
+
+
             HRoom rooms1 = new HRoom(false, 1, 1, new Animal("Abdul", 1.0, 1.0,"Gato", 3, "Siames", new ClinicHistory(1, "Fisura tipo 2", "Dolor")));
             HRoom rooms2 = new HRoom(false, 2, 2, new Animal("Izak", 0.7, 0.5,"Gato", 2, "Siames", new ClinicHistory(1, "Fisura tipo 3", "Dolor")));
             HRoom rooms3 = new HRoom(false, 3, 3, new Animal("Kazan", 0.7, 3.0,"Perro", 2, "Labrador", new ClinicHistory(1, "Hongo en la piel", "Sangrado")));
@@ -180,6 +201,7 @@ public class Main {
             HRoom rooms7 = new HRoom(false, 7, 7,new Animal("Chispi", 1.0, 7.0,"Otro", 4, "Iguana", new ClinicHistory(1, "Fractura de pata", "Dolor")));
             HRoom rooms8 = new HRoom(false, 8, 8, new Animal("Lyan", 1.0, 3.0,"Gato", 2, "Siames", new ClinicHistory(1, "Fisura tipo 3", "Dolor")));
 
+            veterinary.addMiniRoom(rooms1, rooms2, rooms3, rooms4, rooms5, rooms6, rooms7, rooms8);
 
       }
     }
