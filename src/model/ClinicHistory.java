@@ -89,6 +89,12 @@ public class ClinicHistory{
 
   }
 
+  /**
+	* Description This method allows to add a object and indicates if it can be added . <br>
+  * <b>pre:</b> The ArrayList have to be initialized
+	* <b>post:</b> True / False.
+	* @return A boolean that indicates if the object can be added.
+	*/
 
   //addMedicine
 

@@ -111,10 +111,20 @@ public class HRoom{
     this.animals = animals;
   }
 
+  /**
+	* Description This method allows to get the pet information from Animal class. <br>
+	* @return The pet information.
+	*/
+
   public String infoPet(){
     String msj = animals.infoPet();
     return msj;
   }
+
+  /**
+	* Description This method allows to get name of the animal in the room and allows to do another method. <br>
+	* @return The name of the pet in the room.
+	*/
 
   public String nombrePet(){
     return animals.getName();

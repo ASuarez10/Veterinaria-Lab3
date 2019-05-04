@@ -114,6 +114,14 @@ public class HumanClient{
 
   //addPet
 
+  /**
+	* Description This method allows to add an animal. <br>
+  * <b>pre:</b> The ArrayList have to be initialized.
+	* <b>post:</b> True / False.
+	* @param The new Animal object.
+  * @return A boolean that indicates if the object can be added.
+	*/
+
   public boolean addPet(Animal pet){
 
     return pets.add(pet);
@@ -184,12 +192,14 @@ public class HumanClient{
 
    }
 
+   //infoPet
+
    public String infoPet(){
      String msj = "";
 
      for(int i = 0; i < pets.size(); i++){
 
-       msj += pets.get(i).infoPet() + "\n";
+       msj += pets.get(i).infoPet();
      }
 
      return msj;

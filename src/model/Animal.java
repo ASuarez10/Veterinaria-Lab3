@@ -193,6 +193,12 @@ public class Animal{
 		this.room = room;
   }
 
+  /**
+	* Description This method allows to make a list with the pet information. <br>
+  * <b>pre:</b> The pet was created before and its attributes are not null.
+	* @return The information of the animal.
+	*/
+
   //infoPet
 
   public String infoPet(){
@@ -203,10 +209,12 @@ public class Animal{
     msj += "Su altura es:" + height + "\n";
     msj += "Mi peso es:" + weight + "\n";
     msj +="Mi tipo es:" + type + "\n";
-    msj +="Mi indice de masa corporal es: "+ calculateBMI();
+    msj +="Mi indice de masa corporal es: "+ calculateBMI() + "\n";
 
   return msj;
  }
+
+ //calculateBMI
 
  /**
 *Description This method allows to calculate the body mass index for a pet.
@@ -214,8 +222,6 @@ public class Animal{
 *post: The BMI is calculated.
 *@return The pet body mass index. Returns -1 if the height is zero  due to the division on zero does not exist.
 */
-
- //calculateBMI
 
  public double calculateBMI(){
    double bmi = 0.0;
