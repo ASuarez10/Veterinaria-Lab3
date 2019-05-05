@@ -13,6 +13,7 @@ public class Veterinary{
   //Relations
 
   private ArrayList<HumanClient>clients;
+  private ArrayList<Service> services;
   private HRoom[] rooms;
 
   //Methods
@@ -22,6 +23,7 @@ public class Veterinary{
     this.name = name;
     clients = new ArrayList<HumanClient>();
     rooms = new HRoom[NROOM];
+    services = new ArrayList<Service>();
   }
 
   //name
@@ -377,6 +379,13 @@ public class Veterinary{
     ArrayList<Medicine> DoloranM=new ArrayList<Medicine>();
     DolexM.add(Doloran);
 
+    Service Service1 = new Service(Service.SERVICE1, Service.WASH, "10 de mayo de 2001", "12345", "1235433443", new Animal("Simon", 1.0, 10, Animal.PERRO, 5, "Golden Retriever", null));
+    services.add(Service1);
+    Service Service2 = new Service(Service.SERVICE2, Service.WASHDELIVERY, "10 de mayo de 2010", "54321", "1234433443", new Animal("Simona", 1.2, 14, Animal.GATO, 5, "Egipcio", null));
+    services.add(Service2);
+    Service Service3 = new Service(Service.SERVICE3, Service.CNAILS, "10 de mayo de 2011", "12335", "1235333443", new Animal("Andrea", 1.5, 15, Animal.PERRO, 5, "Dalmata", null));
+    services.add(Service3);
+
   }
 
   /**
@@ -423,6 +432,91 @@ public class Veterinary{
       }
     }
     return msj;
+  }
+
+  /**
+  *Description This method allows to calculate the income for the 1st service.
+  *pre: The ArrayList has to be created.
+  *@return The income.
+  */
+
+  public double service1(){
+    double s1 = 0.0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE1)){
+        s1 += services.get(i).getCost();
+      }
+    }
+    return s1;
+  }
+
+  /**
+  *Description This method allows to calculate the income for the 2nd service.
+  *pre: The ArrayList has to be created.
+  *@return The income.
+  */
+
+  public double service2(){
+    double s2 = 0.0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE2)){
+        s2 += services.get(i).getCost();
+      }
+    }
+    return s2;
+  }
+
+  /**
+  *Description This method allows to calculate the income for the 3rd service.
+  *pre: The ArrayList has to be created.
+  *@return The income.
+  */
+
+  public double service3(){
+    double s3 = 0.0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE3)){
+        s3 += services.get(i).getCost();
+      }
+    }
+    return s3;
+  }
+
+  /**
+  *Description This method allows to calculate the income for the 4th service.
+  *pre: The ArrayList has to be created.
+  *@return The income.
+  */
+
+  public double service4(){
+    double s4 = 0.0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE4)){
+        s4 += services.get(i).getCost();
+      }
+    }
+    return s4;
+  }
+
+  /**
+  *Description This method allows to calculate the income for the 5th service.
+  *pre: The ArrayList has to be created.
+  *@return The income.
+  */
+
+  public double service5(){
+    double s5 = 0.0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE5)){
+        s5 += services.get(i).getCost();
+      }
+    }
+    return s5;
   }
 
 }//final
