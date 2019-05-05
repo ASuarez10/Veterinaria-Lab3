@@ -76,7 +76,7 @@ public class Medicine{
   /**
 	* Description This method allows to change the price per dose of the medicine. <br>
 	* <b>post:</b> The price per dose of the medicne is changed.
-	* @param The new price per dose of the medicine. 
+	* @param The new price per dose of the medicine.
 	*/
 
   public void setDosePrice(double dosePrice){

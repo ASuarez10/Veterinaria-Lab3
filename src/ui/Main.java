@@ -52,7 +52,9 @@ public class Main {
                 System.out.println("-----------------------------------------------------------");
                 System.out.println("6. Ver informacion de las mascotas de un cliente");
                 System.out.println("-----------------------------------------------------------");
-                System.out.println("7. Salir.");
+                System.out.println("7. Ver informacion de un cliente");
+                System.out.println("-----------------------------------------------------------");
+                System.out.println("8. Salir.");
                 System.out.println("-----------------------------------------------------------");
 
                 a = Menu.nextInt();
@@ -95,11 +97,11 @@ public class Main {
 
                     String typeOfM = reader.nextLine();
 
-                    System.out.println("Digite la altura de su mascota ");
+                    System.out.println("Digite la altura de su mascota en metros");
                     uResponse = reader.nextLine();
                     double heightOfM = Double.valueOf(uResponse);
 
-                    System.out.println("Digite el peso de su mascota ");
+                    System.out.println("Digite el peso de su mascota en kilogramos");
                     uResponse = reader.nextLine();
                     double weightOfM = Double.valueOf(uResponse);
 
@@ -154,9 +156,17 @@ public class Main {
                       System.out.println(veterinary.infoPetClient(idInfo));
 
                       break;
+                    case 7:
+
+                    System.out.println("Ingrese la identificacion del cliente");
+                    String clientIdentifier = reader.nextLine();
+
+                    System.out.println(veterinary.clientsInfo(clientIdentifier));
+
+                    break;
 
                 }
-              }while(a != 7);
+              }while(a != 8);
 
           }
 

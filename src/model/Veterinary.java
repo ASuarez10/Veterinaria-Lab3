@@ -46,6 +46,13 @@ public class Veterinary{
     this.name = name;
   }
 
+  /**
+	* Description This method allows to add a client with his/her pets. <br>
+  * <b>pre:</b> The ArrayList have to be initialized.
+	* <b>post:</b> The client is added with his/her pets.
+	* @param The new Animal object.
+	*/
+
   //addClient
 
   public void addClient(HumanClient client, ArrayList<Animal> clientsPets){
@@ -53,7 +60,15 @@ public class Veterinary{
   clients.add(client);
   clients.get((clients.size()-1)).addPet(clientsPets);
 
-}
+  }
+
+  /**
+	* Description This method allows to add a pet to a room. <br>
+  * <b>pre:</b> The Array have to be initialized.
+	* <b>post:</b> Ha sido agregado / No pudo ser agregado.
+	* @param The new Animal object.
+  * @return A message that indicates if the animal can be added.
+	*/
 
   //addPetToARoom
 
@@ -78,56 +93,33 @@ public class Veterinary{
     return msj;
   }
 
-  public String showClients(){
-      String msj = "";
-      msj += clients.size();
-       for(int i = 0 ; i<clients.size(); i++){
-         msj +=  (i+1) + clients.get(i).infoClient();
-      }
-      return msj;
-
-  }
-
-  //hospitalization
-
-  public String hospitalization(String cIdentification, String pName){
-
-    String msj = "";
-    Animal p = null;
-
-    for(int i = 0; i<clients.size() && p==null; i++){
-      if(clients.get(i).getIdentification().equals(cIdentification)){
-        p = clients.get(i).searchAPet(pName);
-        if(p!=null){
-          msj = "El cliente no tiene esta mascota";
-        }
-      }
-    }
-    if(p!=null){
-      msj = addPetToARoom(p);
-    }
-    return msj;
-  }
+  /**
+	* Description This method allows to see the information of a client. <br>
+  * <b>pre:</b> The ArrayList has to be initialized.
+  * @return A message with the information.
+	*/
 
   //clientsInfo
 
   public String clientsInfo(String clientIdentifier){
-    String info = "";
-    boolean esta = false;
+    String info = "El cliente no esta registrado";
 
-    for(int i = 0; i < clients.size() && !esta; i++){
+    for(int i = 0; i < clients.size(); i++){
+
       if(clients.get(i).getIdentification().equals(clientIdentifier)){
-        esta = true;
-        info += "Nombre: "+ clients.get(i).getName() + "\n";
-        info += "Identificacion: "+ clients.get(i).getIdentification() + "\n";
-        info += "Numero de telefono: "+ clients.get(i).getPhoneN() + "\n";
-        info += "Direccion: "+ clients.get(i).getAdress() + "\n";
-        info += clients.get(i).petsName();
+
+        info = clients.get(i).infoClient();
       }
-      info += "No existe este cliente";
     }
     return info;
   }
+
+  /**
+	* Description This method allows to see if a room is available. <br>
+  * <b>pre:</b> The Array have to be initialized.
+	* <b>post:</b> There is space / There isn't space.
+  * @return A message that indicates if the room is available.
+	*/
 
   public String roomAviability(){
     String msj = "";
@@ -142,6 +134,12 @@ public class Veterinary{
     }
     return msj;
   }
+
+  /**
+	* Description This method allows to know the cost of an hospitalization. <br>
+	* @param The type, weight and days in hospitalization of the animal.
+  * @return The hospitalization cost.
+	*/
 
   //hospitalizationCost
 
@@ -212,6 +210,13 @@ public class Veterinary{
       return cost;
   }
 
+  /**
+	* Description This method allows to add rooms to the array. <br>
+  * <b>pre:</b> The Array have to be initialized, rooms has to be initialized.
+	* <b>post:</b> Rooms will be assigned in each section.
+	* @param The 8 rooms
+	*/
+
   public void addMiniRoom(HRoom rooms1, HRoom rooms2, HRoom rooms3, HRoom rooms4, HRoom rooms5, HRoom rooms6,HRoom rooms7,HRoom rooms8){
 
 
@@ -228,6 +233,13 @@ public class Veterinary{
 
   // contactClient
 
+  /**
+	* Description This method allows to see the cell number of a client. <br>
+  * <b>pre:</b> The Array have to be initialized.
+	* @param The id of the client that is looking for.
+  * @return The contact if the client exists.
+	*/
+
   public String contact(String iDN){
     String msj = "No existe este cliente";
     boolean esta = false;
@@ -242,22 +254,12 @@ public class Veterinary{
     return msj;
   }
 
-  //findPet
-
-  public Animal findPet(String nameClie, String idClie, String  namePe){
-
-  boolean theStop = false;
-  Animal relationshipOfPet = null;
-
-  for(int i= 0;i < clients.size() && !theStop; i++){
-    if (!clients.get(i).getName().equals(nameClie) && clients.get(i).getIdentification() == idClie){
-      relationshipOfPet = clients.get(i).findPet(namePe);
-
-      theStop = true;
-    }
-  }
-  return relationshipOfPet;
-  }
+  /**
+	* Description This method allows to see the information of a pet in a room. <br>
+  * <b>pre:</b> The Array have to be initialized.
+	* @param The name of the animal that is looking for.
+  * @return A message with the information.
+	*/
 
   public String infoPetCuarto(String bName){
     String msj = "Este animal no esta hospitalizado";
@@ -269,6 +271,13 @@ public class Veterinary{
     }
     return msj;
   }
+
+  /**
+	* Description This method allows to see the information of a pet of a client. <br>
+  * <b>pre:</b> The ArrayList have to be initialized.
+	* @param The id of the client that is looking for.
+  * @return A message with the information.
+	*/
 
   public String infoPetClient(String idInfo){
     String msj = "Este cliente no esta registrado";

@@ -127,70 +127,45 @@ public class HumanClient{
     return pets.add(pet);
   }
 
+  /**
+	* Description This method allows to see the client information. <br>
+  * <b>pre:</b> The client has to be initialized.
+  * @return Name, id, adress, phone and pets name of the client.
+	*/
+
   public String infoClient(){
     String msj = "";
-    msj += "Mi nombre es:" + name  ;
-    msj += "Mi identificacion es:" + identification;
-    msj += "Mi direccion es:" + adress  ;
-    msj += "Mi numero es:" + phoneN  ;
-
-    int j = 0;
-    for(int i = 0; i<pets.size(); i++){
-    	++j;
-      msj += "Pet"+ j + "";
-      msj += pets.get(i).infoPet();
-    }
-    return msj;
-  }
-
-  //findPet
-
-  public Animal findPet(String namePe){
-
-  	Animal restrepo = null;
-  	boolean found = false;
-
-  	for(int i = 0; i< pets.size() && !found; i++){
-
-  		if(pets.get(i).getName().equals(namePe)){
-  			restrepo = pets.get(i);
-  			found = true;
-  		}
-    }
-    return restrepo;
-	}
-
-  //searchAPet
-
-  public Animal searchAPet(String pName){
-    Animal mascota = null;
-    boolean found = false;
-
-    for(int i = 0; i<pets.size() && !found; i++){
-      if(pets.get(i).getName().equals(pName)){
-        mascota = pets.get(i);
-        found = true;
-      }
-    }
-    return mascota;
-  }
-
-  //petsName
-
-  public String petsName(){
-    String msj = "Mascotas: "+"\n" ;
+    msj += "Mi nombre es:" + name + "\n" ;
+    msj += "Mi identificacion es:" + identification + "\n";
+    msj += "Mi direccion es:" + adress + "\n" ;
+    msj += "Mi numero es:" + phoneN + "\n" ;
+    msj += "Mis mascotas son: \n";
 
     for(int i = 0; i < pets.size(); i++){
 
-      msj += "- " + pets.get(i).getName() + "\n";
+
+      msj += pets.get(i).getName() + "\n";
     }
     return msj;
   }
+
+  /**
+	* Description This method allows to add an animal. <br>
+  * <b>pre:</b> The ArrayList have to be initialized.
+	* <b>post:</b> This method will add the pets of the client.
+	* @param The new ArrayList for the pets.
+	*/
 
   public void addPet(ArrayList<Animal> clientsPets){
    pets = clientsPets;
 
    }
+
+   /**
+ 	* Description This method allows to see the information of the pets. <br>
+   * <b>pre:</b> The ArrayList have to be initialized.
+   * @return All the pets information.
+ 	*/
 
    //infoPet
 
