@@ -130,4 +130,46 @@ public class HRoom{
     return animals.getName();
   }
 
-}
+
+  /**
+  *Description This method allows to add new medicines that were prescription during the hospitalization at the patient stories.
+  *pre: The patient clinic story must be not null.
+  *post: New medicines were added to the patient clinic story.
+  *@param The medicine name. This param must be not null.
+  *@param The medicine dose, this param refers to the amount of medicine supplied to the pet each time according the frequence assigned.
+  *@param The medicine cost by each dose. This param could be empty.
+  *@param The frequency of medicine application. This param could be empty.
+  *@return A message that indiques if medicine was added to the patient clinic story
+  */
+
+  public String addNewMedicine(String mName, double mDose, double mDP, String mFreq){
+    String msj = "El medicamento ha sido agregado";
+
+    animals.addNewMedicine(mName, mDose, mDP, mFreq);
+
+    return msj;
+  }
+
+  /**
+  *Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
+  *pre: The patient clinic story must be not null.
+  *post: New notes were added to the possible diagnostic in the patient clinic story.
+  *@param The notes of possible diagnostic. This param must be not null.
+  */
+
+  public void addNewDiagnosis(String nDiagnosis){
+    animals.addNewDiagnosis(nDiagnosis);
+  }
+
+  /**
+  *Description This method allows to add new notes to the possible diagnostic during the hospitalization at the patient stories.
+  *pre: The patient clinic story must be not null.
+  *post: New notes were added to the possible diagnostic in the patient clinic story.
+  *@param The notes of possible diagnostic. This param must be not null.
+  */
+
+  public void addNewSymptom(String nSymptom){
+    animals.addNewSymptom(nSymptom);
+  }
+
+}//final

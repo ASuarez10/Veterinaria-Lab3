@@ -7,14 +7,16 @@ public class Medicine{
   private String name;
   private double dose;
   private double dosePrice;
+  private String frequence;
 
   //Methods
 
-  public Medicine(String name, double dose, double dosePrice){
+  public Medicine(String name, double dose, double dosePrice, String frequence){
 
     this.name = name;
     this.dose = dose;
     this.dosePrice = dosePrice;
+    this.frequence = frequence;
   }
 
   //name
@@ -81,6 +83,28 @@ public class Medicine{
 
   public void setDosePrice(double dosePrice){
     this.dosePrice = dosePrice;
+  }
+
+  //frequence
+
+  /**
+	* Description This method allows to get the frequence of the medicine. <br>
+	* <b>post:</b> The frequence of the medicine is given.
+	* @return The frequence of the medicine.
+	*/
+
+  public String getFrequence(){
+    return frequence;
+  }
+
+  /**
+	* Description This method allows to change the frequence of the medicine. <br>
+	* <b>post:</b> The frequence of the medicne is changed.
+	* @param The new frequence of the medicine.
+	*/
+
+  public void setFrequence(String frequence){
+    this.frequence = frequence;
   }
 
 }

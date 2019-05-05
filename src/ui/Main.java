@@ -38,26 +38,32 @@ public class Main {
               Scanner Menu = new Scanner(System.in);
 
               do{
-                System.out.println("---------------Introduce una opcion valida-------------------");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------Introduce una opcion valida---------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("1. Registrar un cliente y crear historia clinica");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("2. Ver informacion de contacto de un cliente");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("3. Ver disponibilidad del cuarto");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("4. Calcular del costo de la hospitalizacion");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("5. Ver informacion de una mascota en un cuarto");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("6. Ver informacion de las mascotas de un cliente");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("7. Ver informacion de un cliente");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
                 System.out.println("8. Cambiar la direccion y el numero telefonico de un cliente");
-                System.out.println("-------------------------------------------------------------");
-                System.out.println("9. Salir.");
-                System.out.println("-------------------------------------------------------------");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("9. Agregar una medicina a una mascota en hostitalizacion");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("10. Agregar un nuevo diagnostico a una mascota en hostitalizacion");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("11. Agregar un nuevo sintoma a una mascota en hostitalizacion");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("12. Salir.");
+                System.out.println("-----------------------------------------------------------------");
 
                 a = Menu.nextInt();
 
@@ -179,42 +185,60 @@ public class Main {
 
                     System.out.println(veterinary.changeClientData(cID, cAdress, cNumber));
 
+                    break;
+                  case 9:
+
+                    System.out.println("Ingrese el nombre de la mascota a la cual se le va a agregar la medicina");
+                    String pMName = reader.nextLine();
+
+                    System.out.println("Ingrese el nombre del medicamento");
+                    String mName = reader.nextLine();
+
+                    System.out.println("Ingrese la dosis del medicamento");
+                    uResponse = reader.nextLine();
+                    double mDose = Double.valueOf(uResponse);
+
+                    System.out.println("Ingrese el precio por dosis del medicamento");
+                    uResponse = reader.nextLine();
+                    double mDP = Double.valueOf(uResponse);
+
+                    System.out.println("Ingrese la frecuencia de la medicina");
+                    String mFreq = reader.nextLine();
+
+                    System.out.println(veterinary.addNewMedicine(pMName, mName, mDose, mDP, mFreq));
+
+                    break;
+                  case 10:
+
+                    System.out.println("Ingrese el nombre de la mascota para agregar diagnostico");
+                    String petnamen = reader.nextLine();
+
+                    System.out.println("Ingrese el nuevo diagnostico");
+                    String nDiagnosis = reader.nextLine();
+
+                    System.out.println(veterinary.addNewDiagnosis(petnamen, nDiagnosis));
+
+                    break;
+                  case 11:
+
+                    System.out.println("Ingrese el nombre de la mascota para agregar sintomas");
+                    String petnamen2 = reader.nextLine();
+
+                    System.out.println("Ingrese el nuevo diagnostico");
+                    String nSymptom = reader.nextLine();
+
+                    System.out.println(veterinary.addNewSymptom(petnamen2, nSymptom));
+
+                    break;
+
                 }
-              }while(a != 9);
+              }while(a != 12);
 
           }
 
           public void init(){
 
             veterinary = new Veterinary("Mi pequeña mascota");
-
-            HumanClient Alberto = new HumanClient("Alberto", "17887987", "312543547", "Cra 65 #14c 90");
-            Animal Juan = new Animal("Juan", 0.7, 1.0, "Gato", 1, "Persa", null);
-            ArrayList<Animal> PetsAlberto = new ArrayList<Animal>();
-            PetsAlberto.add(Juan);
-            Medicine Dolex = new Medicine("Dolex", 2.0, 15000.0);
-            ArrayList<Medicine> DolexM=new ArrayList<Medicine>();
-            DolexM.add(Dolex);
-
-            HumanClient Andres = new HumanClient("Andres", "100457457", "3159876794", "Cra 44 #23 45");
-            Animal Juana =  new Animal("Juana", 2.0, 10.0, "Perro", 2, "Labrador", null);
-            ArrayList<Animal> PetsAndres = new ArrayList<Animal>();
-            PetsAndres.add(Juana);
-            Medicine Mirrapell = new Medicine("Mirrapell", 3.0, 15000.0);
-            ArrayList<Medicine> MirrapellM=new ArrayList<Medicine>();
-            DolexM.add(Mirrapell);
-
-            HumanClient Marcela = new HumanClient("Marcela", "1007707024", "312543345", "Calle 13d #52 34");
-            Animal Alejandro = new Animal("Alejandro", 0.5, 0.5, "Ave", 2, "Loro", null);
-            ArrayList<Animal> PetsMarcela = new ArrayList<Animal>();
-            PetsMarcela.add(Alejandro);
-            Medicine Doloran = new Medicine("Doloran", 2.0, 30000.0);
-            ArrayList<Medicine> DoloranM=new ArrayList<Medicine>();
-            DolexM.add(Doloran);
-              String id = "";
-		          String petName ="";
-
-
 
             HRoom rooms1 = new HRoom(false, 1, 1, new Animal("Abdul", 1.0, 1.0,"Gato", 3, "Siames", new ClinicHistory(1, "Fisura tipo 2", "Dolor")));
             HRoom rooms2 = new HRoom(false, 2, 2, new Animal("Izak", 0.7, 0.5,"Gato", 2, "Siames", new ClinicHistory(1, "Fisura tipo 3", "Dolor")));
