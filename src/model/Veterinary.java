@@ -290,4 +290,28 @@ public class Veterinary{
     }
     return msj;
   }
-}
+
+  /**
+  *Description This method allows to update the basic data of a veterinary client, these data include, address and phone number.
+  *pre: The client was created before.
+  *post: The address and /or phone number of the client is updated.
+  *@param The identification of the client that is looking for.
+  *@param The new address of the client. This param could be empty.
+  *@param The new phone number of the client. This param could be empty.
+  */
+
+  public String changeClientData(String cID, String cAdress, String cNumber){
+    String msj = "Este cliente no existe";
+    boolean esta = false;
+
+    for(int i = 0; i < clients.size() && !esta; i++){
+      if(cID.equals(clients.get(i).getIdentification())){
+        esta = true;
+        msj = "Se han realizado los cambios";
+        clients.get(i).changeClientData(cAdress, cNumber);
+      }
+    }
+    return msj;
+  }
+
+}//final

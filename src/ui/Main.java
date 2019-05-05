@@ -38,24 +38,26 @@ public class Main {
               Scanner Menu = new Scanner(System.in);
 
               do{
-                System.out.println("--------------Introduce una opcion valida------------------");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("---------------Introduce una opcion valida-------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("1. Registrar un cliente y crear historia clinica");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("2. Ver informacion de contacto de un cliente");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("3. Ver disponibilidad del cuarto");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("4. Calcular del costo de la hospitalizacion");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("5. Ver informacion de una mascota en un cuarto");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("6. Ver informacion de las mascotas de un cliente");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
                 System.out.println("7. Ver informacion de un cliente");
-                System.out.println("-----------------------------------------------------------");
-                System.out.println("8. Salir.");
-                System.out.println("-----------------------------------------------------------");
+                System.out.println("-------------------------------------------------------------");
+                System.out.println("8. Cambiar la direccion y el numero telefonico de un cliente");
+                System.out.println("-------------------------------------------------------------");
+                System.out.println("9. Salir.");
+                System.out.println("-------------------------------------------------------------");
 
                 a = Menu.nextInt();
 
@@ -92,7 +94,7 @@ public class Main {
                     int ageOfM = reader.nextInt();
                     reader.nextLine();
 
-                    System.out.println("Digite el tipo de su mascota: \n Gato\n Perro\n Ave\n Otro ");
+                    System.out.println("Digite el tipo de su mascota exactamente como aparece a continuacion: \n Gato\n Perro\n Ave\n Otro ");
 
 
                     String typeOfM = reader.nextLine();
@@ -164,9 +166,21 @@ public class Main {
                     System.out.println(veterinary.clientsInfo(clientIdentifier));
 
                     break;
+                  case 8:
+
+                    System.out.println("Ingrese la identificacion del cliente");
+                    String cID = reader.nextLine();
+
+                    System.out.println("Ingrese la nueva direccion del cliente");
+                    String cAdress = reader.nextLine();
+
+                    System.out.println("Ingrese el nuevo numero telefonico del cliente");
+                    String cNumber = reader.nextLine();
+
+                    System.out.println(veterinary.changeClientData(cID, cAdress, cNumber));
 
                 }
-              }while(a != 8);
+              }while(a != 9);
 
           }
 

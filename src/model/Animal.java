@@ -209,7 +209,7 @@ public class Animal{
     msj += "Su altura es:" + height + "\n";
     msj += "Mi peso es:" + weight + "\n";
     msj +="Mi tipo es:" + type + "\n";
-    msj +="Mi indice de masa corporal es: "+ calculateBMI() + "\n";
+    msj +="Mi indice de masa corporal es: "+ calculateBMI() + "\n\n";
 
   return msj;
  }
