@@ -62,7 +62,15 @@ public class Main {
                 System.out.println("-----------------------------------------------------------------");
                 System.out.println("11. Agregar un nuevo sintoma a una mascota en hostitalizacion");
                 System.out.println("-----------------------------------------------------------------");
-                System.out.println("12. Salir.");
+                System.out.println("12. Ver ingresos por cada servicio");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("13. Ver ingresos por todos los servicios");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("14. Agregar un nuevo servicio");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("15. Ver promedio de ingresos por cada servicio");
+                System.out.println("-----------------------------------------------------------------");
+                System.out.println("16. Salir.");
                 System.out.println("-----------------------------------------------------------------");
 
                 a = Menu.nextInt();
@@ -230,9 +238,68 @@ public class Main {
                     System.out.println(veterinary.addNewSymptom(petnamen2, nSymptom));
 
                     break;
+                  case 12:
+
+                    System.out.println(veterinary.cPS());
+
+                    break;
+                  case 13:
+
+                    System.out.println(veterinary.tIncome());
+
+                    break;
+                  case 14:
+
+                    System.out.println("Ingrese el nombre del servicio exactamento como aparece a continuacion: Lavado de perros \n Lavado de mascotas a domicilio \n Corte de uñas \n Profilaxia dental \n Aplicacion de vacunas");
+                    String sN = reader.nextLine();
+
+                    System.out.println("Ingrese el precio");
+                    uResponse = reader.nextLine();
+                    double sC = Double.valueOf(uResponse);
+
+                    System.out.println("Ingrese la fecha en que se realizo el servicio");
+                    String dN = reader.nextLine();
+
+                    System.out.println("Ingrese una ID para la mascota");
+                    String iPP = reader.nextLine();
+
+                    System.out.println("Ingrese la ID del cliente");
+                    String iPC = reader.nextLine();
+
+                    System.out.println("Ingrese el nombre de la mascota");
+                    String nP = reader.nextLine();
+
+                    System.out.println("Ingrese la altura de la mascota");
+                    uResponse = reader.nextLine();
+                    double hP = Double.valueOf(uResponse);
+
+                    System.out.println("Ingrese el peso de la mascota");
+                    uResponse = reader.nextLine();
+                    double wP = Double.valueOf(uResponse);
+
+                  System.out.println("Ingrese que tipo de animal es exactamente como dice aqui:\n Gato \n Perro \n Ave \n Otro");
+                    String tP = reader.nextLine();
+
+                    System.out.println("Ingrese la edad de la mascota");
+                    int eP = reader.nextInt();
+
+                    System.out.println("Ingrese la raza de la mascota");
+                    String rP = reader.nextLine();
+
+                    Service nService = new Service(sN, sC, dN, iPP, iPC, new Animal(nP, hP, wP, tP, eP, rP, null));
+                    veterinary.addService(nService);
+
+                    System.out.println("Se ha agregado el nuevo servicio");
+
+                    break;
+                  case 15:
+
+                    System.out.println(veterinary.promIncomes());
+
+                    break;
 
                 }
-              }while(a != 12);
+              }while(a != 16);
 
           }
 

@@ -519,4 +519,157 @@ public class Veterinary{
     return s5;
   }
 
+  /**
+  *Description This method allows to see the income for all the services.
+  *pre: The ArrayList has to be initialized.
+  *@return A message with the income for each service.
+  */
+
+  public String cPS(){
+    String msj = "";
+
+    msj += Service.SERVICE1 +": " + service1() + " pesos" + "\n";
+    msj += Service.SERVICE2 +": " + service2() + " pesos" + "\n";
+    msj += Service.SERVICE3 +": " + service3() + " pesos" + "\n";
+    msj += Service.SERVICE4 +": " + service4() + " pesos" + "\n";
+    msj += Service.SERVICE5 +": " + service5() + " pesos" + "\n";
+
+    return msj;
+  }
+
+  /**
+  *Description This method allows to see the income for all the services.
+  *pre: The ArrayList has to be initialized.
+  *@return A message with the income for all the services.
+  */
+
+  public String tIncome(){
+    String msj = "";
+    double total = service1() + service2() + service3() + service4() + service5();
+
+    msj += "Los ingresos totales son " + total + " pesos";
+
+    return msj;
+  }
+
+  /**
+  *Description This method allows to add a service.
+  *pre: The animal has to be created.
+  *post: The service was added.
+  *@param The pet name. This param must be not null.
+  */
+
+  public void addService(Service nService){
+
+    services.add(nService);
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The times that the service appearance.
+  */
+
+  public int appearances1(){
+    int apa = 0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE1)){
+        apa++;
+      }
+    }
+
+    return apa;
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The times that the service appearance.
+  */
+
+  public int appearances2(){
+    int apa = 0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE2)){
+        apa++;
+      }
+    }
+
+    return apa;
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The times that the service appearance.
+  */
+
+  public int appearances3(){
+    int apa = 0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE3)){
+        apa++;
+      }
+    }
+
+    return apa;
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The times that the service appearance.
+  */
+
+  public int appearances4(){
+    int apa = 0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE4)){
+        apa++;
+      }
+    }
+
+    return apa;
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The times that the service appearance.
+  */
+
+  public int appearances5(){
+    int apa = 0;
+
+    for(int i = 0; i < services.size(); i++){
+      if(services.get(i).getServiceName().equals(Service.SERVICE5)){
+        apa++;
+      }
+    }
+
+    return apa;
+  }
+
+  /**
+  *Description This method allows to see how many times a service appearance.
+  *pre: The ArrayList has to be initialized.
+  *@return The average of the incomes.
+  */
+
+  public String promIncomes(){
+    String msj = "El promedio de ingresos por cada sevicio es: \n";
+
+    msj += Service.SERVICE1 +": " + (service1() / appearances1()) + " pesos" + "\n";
+    msj += Service.SERVICE2 +": " + (service2() / appearances2()) + " pesos" + "\n";
+    msj += Service.SERVICE3 +": " + (service3() / appearances3()) + " pesos" + "\n";
+    msj += Service.SERVICE4 +": " + (service4() / appearances4()) + " pesos" + "\n";
+    msj += Service.SERVICE5 +": " + (service5() / appearances5()) + " pesos" + "\n";
+
+    return msj;
+  }
+
 }//final
